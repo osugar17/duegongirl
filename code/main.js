@@ -15,128 +15,6 @@ loadSprite("bluezombie1", "sprites/bluezombie1.gif");
 loadSprite("coin", "sprites/coin.gif");
 loadSprite("baby-blue", "sprites/baby-blue.png");
 
-// const player = add([
-//     sprite("yellowbunny"),
-//     pos(0,0),  
-//     area(),
-//     scale(3,3)
-// ]);
-
-// const SPEED = 320;
-// onKeyDown("right", () => {
-//     player.move(SPEED, 0)
-// })
-
-// onKeyDown("left", () => {
-//     player.move(-SPEED, 0)
-// })
-
-// onKeyDown("down", () => {
-//     player.move(0, SPEED)
-  
-// })
-
-// onKeyDown("up", () => {
-//     player.move(0, -SPEED)
-  
-// })
-
-// add([
-// 	// list of components
-// 	sprite("purple girl"),
-// 	pos(600, 600),
-// 	area(30),
-//   scale(3,3)
-// ])
-
-
-// // const map = [
-// //   "xxxxxxxxxxxxxxxxxxxx",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "x                  x",
-// //   "xxxxxxxxxxxxxxxxxxxx",
-// // ];
-
-// // const levelConf = {
-// // 	width: 64,
-// // 	height: 64,
-  
-// // 	"x": () => [
-// // 		sprite("JessesCustomundergroundBlockSprites"),
-// // 		area(),
-// // 		solid(),
-// // 		origin("bot"),
-// // 	  ],
-//  // }
-
-// // Generate mobs
-//       const mobSpawnInterval = 1; // in seconds
-//       let mobSpawnTimer = 1;
-
-//       function spawnMob() {
-//         const mobX = rand(640 - 32);
-//         const mobY = rand(480 - 32);
-//         const mob = add([
-//           sprite("zombie1"),
-//           pos(mobX, mobY),
-//           scale(3),
-//           {
-//             speed: 50
-//           },
-//           "zombie1"
-//         ]);
-//       }
-
-//       // Define mob movement
-//       action("zombie1", (mob) => {
-//         mob.move(mob.speed, 0);
-//       });
-
-//       // Define mob collision with player
-//       collides("yellowbunny", "zombie1", (player, mob) => {
-//         go("lose");
-//       });
-
-//       // Define win condition
-//       player.action(() => {
-//         if (player.pos.x >= 640 - 32 && player.pos.y >= 480 - 32) {
-//           go("win");
-//         }
-//       });
-
-//       // Update game logic
-//       action(() => {
-//         mobSpawnTimer += dt();
-//         if (mobSpawnTimer >= mobSpawnInterval) {
-//           spawnMob();
-//           mobSpawnTimer = 0;
-//         }
-//       });
-
-//  scene("win", () => {
-//       add([
-//         text("You Win!", 32),
-//         origin("center"),
-//         pos(width() / 2, height() / 2)
-//       ]);
-//     });
-
     scene("game", () => {
 
       add([
@@ -228,3 +106,128 @@ loadSprite("baby-blue", "sprites/baby-blue.png");
 
     // Start the game
     go("game");
+
+
+
+
+// const player = add([
+//     sprite("yellowbunny"),
+//     pos(0,0),  
+//     area(),
+//     scale(3,3)
+// ]);
+
+// const SPEED = 320;
+// onKeyDown("right", () => {
+//     player.move(SPEED, 0)
+// })
+
+// onKeyDown("left", () => {
+//     player.move(-SPEED, 0)
+// })
+
+// onKeyDown("down", () => {
+//     player.move(0, SPEED)
+
+// })
+
+// onKeyDown("up", () => {
+//     player.move(0, -SPEED)
+
+// })
+
+// add([
+// 	// list of components
+// 	sprite("purple girl"),
+// 	pos(600, 600),
+// 	area(30),
+//   scale(3,3)
+// ])
+
+
+// // const map = [
+// //   "xxxxxxxxxxxxxxxxxxxx",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "x                  x",
+// //   "xxxxxxxxxxxxxxxxxxxx",
+// // ];
+
+// // const levelConf = {
+// // 	width: 64,
+// // 	height: 64,
+
+// // 	"x": () => [
+// // 		sprite("JessesCustomundergroundBlockSprites"),
+// // 		area(),
+// // 		solid(),
+// // 		origin("bot"),
+// // 	  ],
+//  // }
+
+// // Generate mobs
+//       const mobSpawnInterval = 1; // in seconds
+//       let mobSpawnTimer = 1;
+
+//       function spawnMob() {
+//         const mobX = rand(640 - 32);
+//         const mobY = rand(480 - 32);
+//         const mob = add([
+//           sprite("zombie1"),
+//           pos(mobX, mobY),
+//           scale(3),
+//           {
+//             speed: 50
+//           },
+//           "zombie1"
+//         ]);
+//       }
+
+//       // Define mob movement
+//       action("zombie1", (mob) => {
+//         mob.move(mob.speed, 0);
+//       });
+
+//       // Define mob collision with player
+//       collides("yellowbunny", "zombie1", (player, mob) => {
+//         go("lose");
+//       });
+
+//       // Define win condition
+//       player.action(() => {
+//         if (player.pos.x >= 640 - 32 && player.pos.y >= 480 - 32) {
+//           go("win");
+//         }
+//       });
+
+//       // Update game logic
+//       action(() => {
+//         mobSpawnTimer += dt();
+//         if (mobSpawnTimer >= mobSpawnInterval) {
+//           spawnMob();
+//           mobSpawnTimer = 0;
+//         }
+//       });
+
+//  scene("win", () => {
+//       add([
+//         text("You Win!", 32),
+//         origin("center"),
+//         pos(width() / 2, height() / 2)
+//       ]);
+//     });
