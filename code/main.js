@@ -79,7 +79,7 @@ loadSprite("baby-blue", "sprites/baby-blue.png");
       ]);
 
       // Update coin count label
-      player.update(() => {
+      player.action(() => {
         if (player.coins !== coinCountLabel.value) {
           coinCountLabel.text = `Coins: ${player.coins}`;
           coinCountLabel.value = player.coins;

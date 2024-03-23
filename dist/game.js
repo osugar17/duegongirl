@@ -2970,7 +2970,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         value: player.coins
       }
     ]);
-    player.update(() => {
+    player.action(() => {
       if (player.coins !== coinCountLabel.value) {
         coinCountLabel.text = `Coins: ${player.coins}`;
         coinCountLabel.value = player.coins;
