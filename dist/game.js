@@ -2922,72 +2922,24 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   loadSprite("bluezombie1", "sprites/bluezombie1.gif");
   loadSprite("coin", "sprites/coin.gif");
   loadSprite("baby-blue", "sprites/baby-blue.png");
-  scene("game", () => {
-    add([
-      sprite("baby-blue", { width: width(), height: height() })
-    ]);
-    const player = add([
-      sprite("purple girl"),
-      pos(48, 48),
-      scale(6),
-      area(),
-      {
-        speed: 500,
-        coins: 0
-      }
-    ]);
-    const numCoins = 10;
-    for (let i = 0; i < numCoins; i++) {
-      const coin = add([
-        sprite("coin"),
-        pos(rand(width()), rand(height())),
-        scale(3),
-        area(),
-        "coin"
-      ]);
-      player.collides("coin", (coin2) => {
-        player.coins += 1;
-        destroy(coin2);
-      });
-    }
-    keyDown("up", () => {
-      player.move(0, -player.speed);
-    });
-    keyDown("down", () => {
-      player.move(0, player.speed);
-    });
-    keyDown("left", () => {
-      player.move(-player.speed, 0);
-    });
-    keyDown("right", () => {
-      player.move(player.speed, 0);
-    });
-    const coinCountLabel = add([
-      text(`Coins: ${player.coins}`, 24),
-      pos(12, 12),
-      layer("ui"),
-      {
-        value: player.coins
-      }
-    ]);
-    player.action(() => {
-      if (player.coins !== coinCountLabel.value) {
-        coinCountLabel.text = `Coins: ${player.coins}`;
-        coinCountLabel.value = player.coins;
-      }
-      if (player.coins >= 100) {
-        go("win");
-      }
-    });
+  var player = add([
+    sprite("yellowbunny"),
+    pos(0, 0),
+    area(),
+    scale(3, 3)
+  ]);
+  var SPEED = 320;
+  onKeyDown("right", () => {
+    player.move(SPEED, 0);
   });
-  scene("win", () => {
-    add([
-      text("You won! Thanks for Playing", 48),
-      pos(width() / 2, height() / 2),
-      origin("center"),
-      layer("ui")
-    ]);
+  onKeyDown("left", () => {
+    player.move(-SPEED, 0);
   });
-  go("game");
+  onKeyDown("down", () => {
+    player.move(0, SPEED);
+  });
+  onKeyDown("up", () => {
+    player.move(0, -SPEED);
+  });
 })();
 //# sourceMappingURL=game.js.map
